@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 using SocNet.Clock;
+using SocNet.Tests.Integration.Time;
 using SocNet.Time;
 
 namespace SocNet.Tests.Integration
@@ -40,14 +42,17 @@ namespace SocNet.Tests.Integration
                 .Returns(later)
                 .Returns(later);
 
-            DateTimeProvider.SetCustomProvider(dateTimeProvider.Object);
-
             // act
-            Follow(Charlie, Alice);
-            var wallWithAlice = GetWall(Charlie);
-            Follow(Charlie, Bob);
-            var wallWithAliceAndBob = GetWall(Charlie);
+            IEnumerable<string> wallWithAlice;
+            IEnumerable<string> wallWithAliceAndBob;
 
+            using (new DateTimeProviderContext(dateTimeProvider.Object))
+            {
+                Follow(Charlie, Alice);
+                wallWithAlice = GetWall(Charlie);
+                Follow(Charlie, Bob);
+                wallWithAliceAndBob = GetWall(Charlie);
+            }
 
             // assert
             wallWithAlice.Should().Equal(Wall(
@@ -60,7 +65,6 @@ namespace SocNet.Tests.Integration
                 "Bob - Damn! We lost! (2 minutes ago)",
                 "Alice - I love the weather today (5 minutes ago)"));
 
-            ////dateTimeProvider.Verify(x => x.Now(), Times.Exactly(6));
             dateTimeProvider.VerifyAll();
         }
     }

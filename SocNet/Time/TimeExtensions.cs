@@ -6,7 +6,8 @@ namespace SocNet.Time
     {
         public static DateTime MinutesAgo(this int value)
         {
-            return MinutesBefore(value, DateTimeProvider.Now);
+            var now = DateTimeProvider.Now;
+            return MinutesBefore(value, now);
         }
 
         public static DateTime MinutesBefore(this int value, DateTime relativeTo)
@@ -16,7 +17,8 @@ namespace SocNet.Time
 
         public static DateTime SecondsAgo(this int value)
         {
-            return SecondsBefore(value, DateTimeProvider.Now);
+            var now = DateTimeProvider.Now;
+            return SecondsBefore(value, now);
         }
 
         public static DateTime SecondsBefore(this int value, DateTime relativeTo)

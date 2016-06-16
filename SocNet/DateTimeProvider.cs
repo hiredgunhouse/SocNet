@@ -3,7 +3,7 @@ using SocNet.Clock;
 
 namespace SocNet
 {
-    public static class DateTimeProvider 
+    public static class DateTimeProvider
     {
         private static readonly IDateTimeProvider Default = new DefaultDateTimeProvider();
         private static IDateTimeProvider _dateTimeProvider;
