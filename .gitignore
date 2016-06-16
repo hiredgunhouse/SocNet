@@ -1,0 +1,15 @@
+SocNet.Tests.Unit/obj/
+SocNet/.vs/SocNet/v14/.suo
+SocNet/SocNet.Tests.Integration/obj/
+SocNet/obj/
+SocNet/_NCrunch_SocNet/SocNet.crunchsolution.cache
+.vs/SocNet/v14/.suo
+SocNet.ConsoleClient/bin/
+SocNet.ConsoleClient/obj/
+SocNet.Tests.Integration/bin/
+SocNet.Tests.Integration/obj/
+SocNet.Tests.Unit/bin/
+SocNet.sln.DotSettings.user
+SocNet/bin/
+_NCrunch_SocNet/
+packages/
