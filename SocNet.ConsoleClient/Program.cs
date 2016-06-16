@@ -48,6 +48,8 @@ namespace SocNet.ConsoleClient
         private static void PrintUsage()
         {
             Console.WriteLine(@"
+Usage:
+
 Commands always start with the user’s name.
 There are four commands.
 
