@@ -2,100 +2,80 @@
 =========
 
 
-[![Build status](https://ci.appveyor.com/api/projects/status/euepqdmj43tn5mec?svg=true)](https://ci.appveyor.com/project/PiotrOwsiak/socnet)
+[![Build status](https://ci.appveyor.com/api/projects/status/5tk9huhsb8paj00m?svg=true)](https://ci.appveyor.com/project/PiotrOwsiak/socnet)
+
 
 This is an implementation of an exercise (see below for details).
 
-###Asumptions
+### Asumptions
 
-This code is not built for scale.
-It is expected to run in a single thread (not build for thread safety).
-There are no error checks, as requested, only happy path is supported.
+This code is not built for scale.  
+It is expected to run in a single thread (not build for thread safety).  
+There are no error checks, as requested, only happy path is supported.  
 Due to happy path assumption I also don't have any negative tests.
 
-###Description:
+### Description:
 
 Features
 
-Posting:
+Posting:  
 Alice can publish messages to a personal timeline
 
-> Alice -> I love the weather today
+\> Alice -> I love the weather today  
+\> Bob -> Damn! We lost!  
+\> Bob -> Good game though.
 
-> Bob -> Damn! We lost!
+Reading:  
+ I can view Alice and Bob's timelines
 
-> Bob -> Good game though.
-
-Reading:
- I can view Alice
- and Bob’s
- timelines
-
-> Alice
-
-I love the weather today (5 minutes ago)
-
-> Bob
-
-Good game though. (1 minute ago)
-
+\> Alice  
+I love the weather today (5 minutes ago)  
+\> Bob  
+Good game though. (1 minute ago)  
 Damn! We lost! (2 minutes ago)
 
-Following:
+Following:  
 Charlie
- can subscribe to Alice’s
- and Bob’s
- timelines, and view an aggregated list of all subscriptions
+ can subscribe to Alice's and Bob's timelines, and view an aggregated list of all subscriptions  
 
-> Charlie -> I'm in New York today! Anyone want to have a coffee?
-
-> Charlie follows Alice
-
-> Charlie wall
-
-Charlie - I'm in New York today! Anyone want to have a coffee? (2 seconds ago)
-
+\> Charlie -> I'm in New York today! Anyone want to have a coffee?  
+\> Charlie follows Alice  
+\> Charlie wall  
+Charlie - I'm in New York today! Anyone want to have a coffee? (2 seconds ago)  
+Alice - I love the weather today (5 minutes ago)  
+\> Charlie follows Bob  
+\> Charlie wall  
+Charlie - I'm in New York today! Anyone wants to have a coffee? (15 seconds ago)  
+Bob - Good game though. (1 minute ago)  
+Bob - Damn! We lost! (2 minutes ago)  
 Alice - I love the weather today (5 minutes ago)
 
-> Charlie follows Bob
+Details  
 
-> Charlie wall
+The application must use the console for input and output.
 
-Charlie - I'm in New York today! Anyone wants to have a coffee? (15 seconds ago)
+Users submit commands to the application.  
+There are four commands ("posting", "reading", etc. are not part of the commands).  
+Commands always start with the user's name.
 
-Bob - Good game though. (1 minute ago)
+    posting:
+    <user name> -> <message>
 
-Bob - Damn! We lost! (2 minutes ago)
+    reading:
+    <user name>
 
-Alice - I love the weather today (5 minutes ago)
-Details
+    following:
+    <user name> follows <another user>
 
-    The application must use the console for input and output.
+    wall:
+    <user name> wall
 
-    Users submit commands to the application. There are
-     four commands. “posting”, “reading”, etc. are not part of the commands; commands always start with the user’s name.
+Don't worry about handling any exceptions or invalid commands.  
+Assume that the user will always type the correct commands.  
+Just focus on the sunny day scenarios.
 
-        posting:
-        <user name> -> <message>
+Don't bother making it work over a network or across processes.  
+It can all be done in memory, assuming that users will all use the same terminal.
 
-        reading:
-        <user name>
-
-        following:
-        <user name> follows <another user>
-
-        wall:
-        <user name> wall
-
-    Don't worry about handling any exceptions or invalid
-     commands. Assume that the user will always type the correct commands. Just focus on the sunny day scenarios.
-
-    Don’t bother making it work over a network or across processes. It can all
-     be done in memory, assuming that users will all use the same terminal.
-
-    Non-existing users should be created as they post their first message. Application should not start with
-     a pre-defined list of users.
-
-    Exercise should be done either in Java or C#.
-
-    Provide instructions on how to run the application.
+Non-existing users should be created as they post their first message.  
+Application should not start with a pre-defined list of users.
