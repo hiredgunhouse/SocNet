@@ -18,8 +18,8 @@ namespace SocNet.Commands
             if (command.Contains(" follows "))
             {
                 var match = Regex.Match(command, "^(?<user>.+) follows (?<whoToFollow>.+)$");
-                var user = match.Groups["user"].Value.TrimEnd();
-                var whoToFollow = match.Groups["whoToFollow"].Value.TrimEnd();
+                var user = match.Groups["user"].Value;
+                var whoToFollow = match.Groups["whoToFollow"].Value;
 
                 return new FollowCommand(user, whoToFollow);
             }
@@ -27,7 +27,7 @@ namespace SocNet.Commands
             if (command.EndsWith(" wall"))
             {
                 var match = Regex.Match(command, "^(?<user>.+) wall$");
-                var user = match.Groups["user"].Value.TrimEnd();
+                var user = match.Groups["user"].Value;
 
                 return new WallCommand(user);
             }

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using SocNet.Formatting;
 using SocNet.Model;
 using SocNet.Storage;
 
 namespace SocNet.Tests.Integration
 {
-    public class FeaturesTestBase
+    public abstract class FeaturesTest
     {
         protected readonly string Alice = "Alice";
         protected readonly string Bob = "Bob";
@@ -19,7 +18,7 @@ namespace SocNet.Tests.Integration
         protected PostFormatter PostFormatter { get; set; }
 
 
-        public FeaturesTestBase()
+        public FeaturesTest()
         {
             PostFormatter = new PostFormatter();
         }

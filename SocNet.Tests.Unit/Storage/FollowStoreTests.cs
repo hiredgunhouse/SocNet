@@ -3,6 +3,7 @@ using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 using SocNet.Storage;
+using SocNet.Tests.Unit.Assert;
 
 namespace SocNet.Tests.Unit.Storage
 {
@@ -21,7 +22,6 @@ namespace SocNet.Tests.Unit.Storage
            _followStore = new TestableFollowStore(); 
         }
 
-        [Test]
         [TestCase("Charlie", "Alice")]
         [TestCase("Charlie", "Bob")]
         public void StoreFollow_GivenAUserAndWhoToFollow_StoresTheDetails(string user, string whoToFollow)
@@ -33,8 +33,8 @@ namespace SocNet.Tests.Unit.Storage
 
             // assert
             var follows = _followStore.GetFollows();
-            follows.Should().ContainKey(user);
-            follows[user].Should().Equal(Followed(whoToFollow));
+            follows.ShouldInclude(Charlie);
+            follows.For(Charlie).Should().Equal(Followed(whoToFollow));
         }
 
         [Test]
@@ -48,8 +48,8 @@ namespace SocNet.Tests.Unit.Storage
 
             // assert
             var follows = _followStore.GetFollows();
-            follows.Should().ContainKey(Charlie);
-            follows[Charlie].Should().Equal(Followed(Alice, Bob));
+            follows.ShouldInclude(Charlie);
+            follows.For(Charlie).Should().Equal(Followed(Alice, Bob));
         }
 
         [Test]
@@ -63,11 +63,10 @@ namespace SocNet.Tests.Unit.Storage
 
             // assert
             var follows = _followStore.GetFollows();
-            follows.Should().ContainKey(Charlie);
-            follows[Charlie].Should().Equal(Followed(Alice));
+            follows.ShouldInclude(Charlie);
+            follows.For(Charlie).Should().Equal(Followed(Alice));
         }
 
-        [Test]
         [TestCase("Alice")]
         [TestCase("Bob")]
         [TestCase("Charlie")]
@@ -82,7 +81,6 @@ namespace SocNet.Tests.Unit.Storage
             followed.Should().BeEmpty();
         }
 
-        [Test]
         [TestCase("Alice", "Bob")]
         [TestCase("Alice", "Bob", "Charlie")]
         [TestCase("Bob", "Alice")]

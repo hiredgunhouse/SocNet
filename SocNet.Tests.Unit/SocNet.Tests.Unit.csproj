@@ -82,6 +82,7 @@
   <ItemGroup>
     <Compile Include="Commands\CommandFactoryTests.cs" />
     <Compile Include="Formatting\PostFormatterTests.cs" />
+    <Compile Include="Assert\AssertExtensions.cs" />
     <Compile Include="Storage\FollowStoreTests.cs" />
     <Compile Include="Storage\PostStoreTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

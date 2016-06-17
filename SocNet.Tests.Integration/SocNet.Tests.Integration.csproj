@@ -63,7 +63,7 @@
     <Compile Include="Time\DateTimeProviderContext.cs" />
     <Compile Include="FollowingTests.cs" />
     <Compile Include="TimelineTests.cs" />
-    <Compile Include="FeaturesTestBase.cs" />
+    <Compile Include="FeaturesTest.cs" />
     <Compile Include="PostingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

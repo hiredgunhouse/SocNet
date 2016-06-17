@@ -1,7 +1,6 @@
 using System;
-using SocNet.Clock;
 
-namespace SocNet
+namespace SocNet.Clock
 {
     public static class DateTimeProvider
     {

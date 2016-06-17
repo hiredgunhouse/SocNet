@@ -3,7 +3,7 @@
 namespace SocNet.Tests.Integration
 {
     [TestFixture]
-    public class PostingTests : FeaturesTestBase
+    public class PostingTests : FeaturesTest
     {
         [SetUp]
         public void SetUp()

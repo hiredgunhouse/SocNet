@@ -4,6 +4,7 @@ using System.Linq;
 using AutoMoq;
 using Moq;
 using NUnit.Framework;
+using SocNet.Clock;
 using SocNet.Model;
 using SocNet.Storage;
 
@@ -30,7 +31,6 @@ namespace SocNet.Tests.Unit
             _followStore = _mocker.GetMock<IFollowStore>();
         }
 
-        [Test]
         [TestCase("Alice", "I love the weather today")]
         [TestCase("Bob", "Damn! We lost!")]
         [TestCase("Bob", "Good game though.")]
@@ -46,7 +46,6 @@ namespace SocNet.Tests.Unit
             _postStore.Verify(x => x.StorePost(It.Is<Post>(p => post.User == user && post.Message == message)));
         }
 
-        [Test]
         [TestCase("Alice")]
         [TestCase("Bob")]
         [TestCase("Charlie")]
@@ -61,7 +60,6 @@ namespace SocNet.Tests.Unit
             _postStore.Verify(x => x.GetPostsByUser(It.Is<string>(u => u == user)));
         }
 
-        [Test]
         [TestCase("Charlie", "Alice")]
         [TestCase("Charlie", "Bob")]
         public void Command_GivenAFollowCommand_SavesItInFollowStore(string user, string whoToFollow)
@@ -77,7 +75,6 @@ namespace SocNet.Tests.Unit
                 It.Is<string>(w => w == whoToFollow))); 
         }
 
-        [Test]
         [TestCase("Alice")]
         [TestCase("Bob")]
         [TestCase("Charlie")]

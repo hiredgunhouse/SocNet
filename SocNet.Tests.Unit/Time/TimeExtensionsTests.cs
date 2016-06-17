@@ -14,8 +14,8 @@ namespace SocNet.Tests.Unit.Time
         public void MinutesAgo_GivenAValue_SubtractsSpecifiedAmountOfMinutesFromNow()
         {
             // arrange
-            var minutes = 5;
             var now = new DateTime(2000, 1, 1, 1, 10, 0);
+            var minutes = 5;
             var ago = new DateTime(2000, 1, 1, 1, 5, 0);
 
             var dateTimeProvider = new Mock<IDateTimeProvider>();
@@ -34,8 +34,8 @@ namespace SocNet.Tests.Unit.Time
         public void MinutesBefore_GivenAValueAndADate_SubtractsSpecifiedAmountOfMinutesFromSpecifiedDate()
         {
             // arrange
-            var minutes = 5;
             var now = new DateTime(2000, 1, 1, 1, 10, 0);
+            var minutes = 5;
             var ago = new DateTime(2000, 1, 1, 1, 5, 0);
 
             // act
@@ -49,8 +49,8 @@ namespace SocNet.Tests.Unit.Time
         public void SecondsAgo_GivenAValue_SubtractsSpecifiedAmountOfSecondsFromNow()
         {
             // arrange
-            var seconds = 15;
             var now = new DateTime(2000, 1, 1, 1, 1, 30);
+            var seconds = 15;
             var ago = new DateTime(2000, 1, 1, 1, 1, 15);
 
             var dateTimeProvider = new Mock<IDateTimeProvider>();
@@ -69,8 +69,8 @@ namespace SocNet.Tests.Unit.Time
         public void SecondsBefore_GivenAValueAndADate_SubtractsSpecifiedAmountOfSecondsFromSpecifiedDate()
         {
             // arrange
-            var seconds = 15;
             var now = new DateTime(2000, 1, 1, 1, 1, 30);
+            var seconds = 15;
             var ago = new DateTime(2000, 1, 1, 1, 1, 15);
 
             // act

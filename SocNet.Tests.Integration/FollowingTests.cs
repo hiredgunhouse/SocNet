@@ -10,7 +10,7 @@ using SocNet.Time;
 namespace SocNet.Tests.Integration
 {
     [TestFixture]
-    public class FollowingTests : FeaturesTestBase
+    public class FollowingTests : FeaturesTest
     {
         [SetUp]
         public void SetUp()

@@ -48,7 +48,7 @@
     <Compile Include="Commands\CommandFactory.cs" />
     <Compile Include="Commands\FollowCommand.cs" />
     <Compile Include="Commands\WallCommand.cs" />
-    <Compile Include="DateTimeProvider.cs" />
+    <Compile Include="Clock\DateTimeProvider.cs" />
     <Compile Include="Clock\DefaultDateTimeProvider.cs" />
     <Compile Include="Clock\IDateTimeProvider.cs" />
     <Compile Include="Formatting\IPostFormatter.cs" />

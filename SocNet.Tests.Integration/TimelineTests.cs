@@ -5,7 +5,7 @@ using SocNet.Time;
 namespace SocNet.Tests.Integration
 {
     [TestFixture]
-    public class TimelineTests : FeaturesTestBase
+    public class TimelineTests : FeaturesTest
     {
         [SetUp]
         public void SetUp()
